@@ -139,15 +139,14 @@ cc.setCalculatedStats = function() {
 	var thisPlanet = this.planets[this.currentPlanetIndex];
 	this.planetSatCost = Math.round(Math.pow(100, 1 + (thisPlanet.satellites * 0.1)));
 	//this.planetCapacity = 1; // *** Should be based off # of satellites
-	var profitPerCustomerPerSecond = 1;
+	var profitPerCustomerPerSecond = 0.1;
 	this.totalProfitPerSecond = profitPerCustomerPerSecond * this.totalCustomers;
 	// Upgrades
 	this.engineerUpgradeCost = Math.round(Math.pow(1000, 1 + (this.base.engineerUpgrades * 0.05)));
 	this.marketingUpgradeCost = Math.round(Math.pow(1000, 1 + (this.base.marketingUpgrades * 0.05)));
 	// Per Click
-	
 	this.buildPerClick = 1 + (this.base.engineerUpgrades * 0.5);
-	this.acquirePerClick = thisPlanet.satellites * (1 + (this.base.marketingUpgrades * 0.5));
+	this.acquirePerClick = 10 * thisPlanet.satellites * (1 + (this.base.marketingUpgrades * 0.5));
 	
 }
 
